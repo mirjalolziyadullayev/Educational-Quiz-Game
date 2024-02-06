@@ -1,0 +1,27 @@
+[
+  {
+    "id": 0,
+    "name": "asd",
+    "learned_words": [
+      {
+        "id": 1,
+        "name": "12",
+        "meaning": "12",
+        "is_learned_status": false
+      },
+      {
+        "id": 2,
+        "name": "w",
+        "meaning": "qw",
+        "is_learned_status": false
+      },
+      {
+        "id": 3,
+        "name": "asd",
+        "meaning": "asd",
+        "is_learned_status": false
+      }
+    ],
+    "scores": 0
+  }
+]
