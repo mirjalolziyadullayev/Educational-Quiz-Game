@@ -1,7 +1,7 @@
-﻿using Educational_Quiz_Game.Interfaces;
-using Educational_Quiz_Game.Models;
+﻿using QuizGameEDU.Interfaces;
+using QuizGameEDU.Models;
 using Spectre.Console;
-namespace Educational_Quiz_Game.Menu;
+namespace Educational_Quiz_Game.Menu.SubMenus;
 public class UserMenu
 {
     private readonly IUserService userService;

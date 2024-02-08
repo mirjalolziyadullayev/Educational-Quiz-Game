@@ -1,7 +1,7 @@
-﻿using Educational_Quiz_Game.Interfaces;
-using Educational_Quiz_Game.Models;
+﻿using QuizGameEDU.Interfaces;
+using QuizGameEDU.Models;
 using Spectre.Console;
-namespace Educational_Quiz_Game.Menu;
+namespace Educational_Quiz_Game.Menu.SubMenus;
 public class QuizMenu
 {
     private readonly IUserService userService;
@@ -15,11 +15,11 @@ public class QuizMenu
 
     public void StartQuizMenu()
     {
-        Console.Write("Enter user ID to start the quiz: ");
+        Console.Write("Enter user ID: ");
         int userId;
         while (!int.TryParse(Console.ReadLine(), out userId))
         {
-            Console.Write("Invalid input. Enter a valid user ID: ");
+            Console.Write("enter a valid ID");
         }
         try
         {
@@ -27,12 +27,12 @@ public class QuizMenu
             var user = users.FirstOrDefault(u => u.Id == userId);
             if (user == null)
             {
-                Console.WriteLine("User not found");
+                Console.WriteLine("User is not found");
                 return;
             }
             if (user.LearnedWords.Count == 0)
             {
-                Console.WriteLine("There is no any word to start quiz!");
+                Console.WriteLine("There aren't any words to start quiz!");
                 Console.WriteLine();
                 return;
             }

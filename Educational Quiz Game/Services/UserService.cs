@@ -1,9 +1,9 @@
-﻿using Educational_Quiz_Game.Interfaces;
-using Educational_Quiz_Game.Models;
+﻿using QuizGameEDU.Interfaces;
+using QuizGameEDU.Models;
 using Newtonsoft.Json;
 using Formatting = Newtonsoft.Json.Formatting;
 
-namespace Educational_Quiz_Game.Services;
+namespace QuizGameEDU.Services;
 public class UserService : IUserService
 {
     public async ValueTask<User> CreateAsync(User user)
@@ -45,7 +45,6 @@ public class UserService : IUserService
 
         return users;
     }
-
     public async ValueTask<bool> UpdateAsync(int id, User user)
     {
         var data = File.ReadAllText(Constants.USERS_PATH);
@@ -55,11 +54,14 @@ public class UserService : IUserService
             ?? throw new Exception($"User is not found with id {id}");
 
         existingUser.Name = user.Name;
+
         existingUser.LearnedWords = new List<Word>();
+
         existingUser.Scores = 0;
 
         data = JsonConvert.SerializeObject(users, Formatting.Indented);
         File.WriteAllText(Constants.USERS_PATH, data);
+
         return true;
     }
 
@@ -72,8 +74,10 @@ public class UserService : IUserService
             ?? throw new Exception($"User is not found with id {id}");
 
         existingUser.Scores += score;
+
         var res = JsonConvert.SerializeObject(users, Formatting.Indented);
         File.WriteAllText(Constants.USERS_PATH, res);
+
         return true;
     }
 
@@ -81,11 +85,15 @@ public class UserService : IUserService
     {
         var data = File.ReadAllText(Constants.USERS_PATH);
         var users = JsonConvert.DeserializeObject<List<User>>(data) ?? new List<User>();
+
         var user = users.FirstOrDefault(u => u.Id == id)
             ?? throw new Exception($"User is not found with id {id}");
+
         users.Remove(user);
+
         data = JsonConvert.SerializeObject(users, Formatting.Indented);
         File.WriteAllText(Constants.USERS_PATH, data);
+
         return true;
     }
 }

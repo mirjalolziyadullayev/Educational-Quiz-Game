@@ -1,4 +1,4 @@
-﻿namespace Educational_Quiz_Game;
+﻿namespace QuizGameEDU;
 
 public class Constants
 {

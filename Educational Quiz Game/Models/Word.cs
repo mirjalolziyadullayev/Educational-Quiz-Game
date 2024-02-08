@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-namespace Educational_Quiz_Game.Models;
+namespace QuizGameEDU.Models;
 public class Word
 {
     [JsonProperty("id")]

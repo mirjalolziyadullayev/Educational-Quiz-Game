@@ -1,6 +1,6 @@
-﻿using Educational_Quiz_Game.Services;
+﻿using QuizGameEDU.Services;
 using Spectre.Console;
-namespace Educational_Quiz_Game.Menu;
+namespace Educational_Quiz_Game.Menu.SubMenus;
 public class MainMenu
 {
     private readonly UserService userService;
@@ -30,7 +30,6 @@ public class MainMenu
                 new SelectionPrompt<string>()
                     .Title("Main selection menu")
                     .AddChoices("Manage Users", "Manage Words", "Progress Tracker", "Quiz Game", "Exit"));
-
             AnsiConsole.Clear();
 
             switch (selection)
@@ -39,25 +38,25 @@ public class MainMenu
                     AnsiConsole.Clear();
                     progressTracker.TrackProgress();
                     break;
-                case "Quiz":
+                case "Quiz Game":
                     AnsiConsole.Clear();
                     quizMenu.StartQuizMenu();
                     break;
-                case "User":
+                case "Manage Users":
                     AnsiConsole.Clear();
                     await userMenu.Show();
                     break;
-                case "Word":
+                case "Manage Words":
                     AnsiConsole.Clear();
                     await wordMenu.Show();
                     break;
                 case "Exit":
                     AnsiConsole.Clear();
-                    Console.WriteLine("Exit main menu");
+                    Console.WriteLine("Exit...");
                     return;
                 default:
                     AnsiConsole.Clear();
-                    Console.WriteLine("Invalid choice.");
+                    Console.WriteLine("wrong choice.");
                     break;
             }
         }

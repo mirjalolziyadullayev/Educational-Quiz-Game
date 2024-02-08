@@ -1,6 +1,5 @@
-﻿using Educational_Quiz_Game.Models;
-
-namespace Educational_Quiz_Game.Interfaces;
+﻿using QuizGameEDU.Models;
+namespace QuizGameEDU.Interfaces;
 public interface IUserService
 {
     ValueTask<User> CreateAsync(User user);

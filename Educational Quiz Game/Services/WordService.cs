@@ -1,7 +1,7 @@
-﻿using Educational_Quiz_Game.Interfaces;
-using Educational_Quiz_Game.Models;
-using Newtonsoft.Json;
-namespace Educational_Quiz_Game.Services;
+﻿using Newtonsoft.Json;
+using QuizGameEDU.Interfaces;
+using QuizGameEDU.Models;
+namespace QuizGameEDU.Services;
 public class WordService : IWordService
 {
     public async ValueTask<Word> CreateAsync(Word word, int userId)
@@ -36,14 +36,13 @@ public class WordService : IWordService
         var updatedUserData = JsonConvert.SerializeObject(users, Formatting.Indented);
         File.WriteAllText(Constants.USERS_PATH, updatedUserData);
 
-
         return word;
-
     }
     public async ValueTask<bool> UpdateIsLearnedStatusAsync(int id)
     {
         var data = File.ReadAllText(Constants.WORDS_PATH);
         var words = JsonConvert.DeserializeObject<List<Word>>(data) ?? new List<Word>();
+
         var word = words.FirstOrDefault(w => w.Id == id)
             ?? throw new Exception($"Word is not found with id {id}");
         word.IsLearnedStatus = true;

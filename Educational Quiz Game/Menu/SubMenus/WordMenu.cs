@@ -1,8 +1,8 @@
-﻿using Educational_Quiz_Game.Interfaces;
-using Educational_Quiz_Game.Models;
-using Educational_Quiz_Game.Services;
+﻿using QuizGameEDU.Interfaces;
+using QuizGameEDU.Models;
+using QuizGameEDU.Services;
 using Spectre.Console;
-namespace Educational_Quiz_Game.Menu;
+namespace Educational_Quiz_Game.Menu.SubMenus;
 public class WordMenu
 {
     private readonly IWordService wordService;
